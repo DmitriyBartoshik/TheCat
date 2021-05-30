@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cat_navigation"
+    app:startDestination="@+id/common_fragment">
+
+    <fragment
+        android:id="@+id/common_fragment"
+        android:name="com.lab.catreview.presentation.ui.fragment.common.CommonFragment"
+        android:label="common_fragment"
+        tools:layout="@layout/fragment_common">
+
+        <action
+            android:id="@+id/favorite_action"
+            app:destination="@+id/favorite_fragment">
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/favorite_fragment"
+        android:name="com.lab.catreview.presentation.ui.fragment.favorite.FavoriteFragment"
+        android:label="favorite_fragment"
+        tools:layout="@layout/fragment_favorite">
+    </fragment>
+
+</navigation>
