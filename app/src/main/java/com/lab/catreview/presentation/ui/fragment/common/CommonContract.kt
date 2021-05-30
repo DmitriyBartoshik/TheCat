@@ -14,6 +14,6 @@ interface CommonContract {
     interface Presenter : IBasePresenter<View> {
         fun loadImage(page: Int)
         fun addFavorite(position: Int, imageId: String, userId: String)
-        fun deleteFavorite()
+        fun deleteFavorite(position:Int,image:Image)
     }
 }

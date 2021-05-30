@@ -35,7 +35,6 @@ class FavoriteFragment : BaseFragment(), FavoriteContract.View {
         presenter.attachView(this)
         initRecyclerView()
         loadImage(page)
-//        attachOnScrollListener()
     }
 
     override fun onDestroyView() {
@@ -48,15 +47,12 @@ class FavoriteFragment : BaseFragment(), FavoriteContract.View {
     }
 
     override fun showProgress() {
-        TODO("Not yet implemented")
     }
 
     override fun hideProgress() {
-        TODO("Not yet implemented")
     }
 
     override fun showError(e: Throwable) {
-        TODO("Not yet implemented")
     }
 
     private fun initRecyclerView() {
@@ -67,7 +63,6 @@ class FavoriteFragment : BaseFragment(), FavoriteContract.View {
     }
 
     private fun loadImage(page: Int) {
-//        isLoading = true;
         presenter.loadFavoriteImage(page)
     }
 }

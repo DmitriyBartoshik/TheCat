@@ -39,11 +39,6 @@ class CommonPresenter @Inject constructor() :
         compositeDisposable.add(disposable)
     }
 
-//    override fun addFavorite(imageId:String,userId:String) {
-//        val params = AddFavoriteUseCase.AddFavoriteUseCaseParams(imageId, userId)
-//        addFavoriteUseCase.execute(AddFavoriteObserver(), params )
-//    }
-
     override fun addFavorite(position: Int, imageId: String, userId: String) {
         val params = AddFavoriteUseCase.AddFavoriteUseCaseParams(imageId, userId)
         val disposable: Disposable =
@@ -54,34 +49,6 @@ class CommonPresenter @Inject constructor() :
         compositeDisposable.add(disposable)
     }
 
-    override fun deleteFavorite() {
-        TODO("Not yet implemented")
-    }
-
-    private fun onImageFavouredChanged(position: Int, image: Image, isFavoured: Boolean) {
-        if (isFavoured) {
-            favourImage(position, image)
-        } else {
-            unfavourImage(position, image)
-        }
-    }
-
-    private fun favourImage(position: Int, image: Image) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            try {
-//                val id = CatRepository.addFavourite(
-//                    imageId = image.id,
-//                    userId = Constants.USER_ID
-//                )
-//                id?.let { image.favId = it }
-//                viewState.postValue(ExploreState.Load(position))
-//            } catch (e: Exception) {
-//                viewState.postValue(ExploreState.Error())
-//            }
-//        }
-    }
-
-    private fun unfavourImage(position: Int, image: Image) {
-        val favId = image.favId ?: return
+    override fun deleteFavorite(position:Int,image:Image) {
     }
 }

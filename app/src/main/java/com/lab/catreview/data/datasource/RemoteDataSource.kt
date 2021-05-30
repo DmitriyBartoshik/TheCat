@@ -20,9 +20,6 @@ class RemoteDataSource @Inject constructor(private val remoteApi: RemoteApi) {
     }
 
     fun addFavoriteCat(imageId: String?, subId: String?): Observable<FavouriteResponse> {
-        Log.d("datarepo", "imageId = $imageId")
-        Log.d("datarepo", "subId = $subId")
-
         return remoteApi.addFavourite(FavouriteRequest(imageId,subId))
     }
 }

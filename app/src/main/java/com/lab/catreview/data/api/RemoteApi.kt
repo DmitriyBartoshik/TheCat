@@ -10,9 +10,6 @@ import retrofit2.http.*
 
 interface RemoteApi {
 
-//    @GET("v1/images/search")
-//    fun loadRemoteCats() : Single<List<RemoteCat>>
-
     @GET("/v1/images/search")
     fun searchImages(
         @Query("limit") limit: Int? = Constants.PAGE_SIZE,
@@ -37,6 +34,3 @@ interface RemoteApi {
         @Path("favourite_id") favouriteId: String
     )
 }
-
-
-//'api_key=13dea9cf-6096-4edb-8a7d-8e51249921a7'

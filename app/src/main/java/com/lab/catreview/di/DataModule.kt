@@ -21,9 +21,7 @@ import java.util.*
 class DataModule {
 
     @Provides
-//    @Reusable
     internal fun provideRetrofitInterface(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-//        .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(MoshiConverterFactory.create())
         .baseUrl(Constants.BASE_URL)
@@ -31,7 +29,6 @@ class DataModule {
         .build()
 
     @Provides
-//    @Reusable
     internal fun provideRemoteApi(retrofit: Retrofit): RemoteApi =
         retrofit.create(RemoteApi::class.java)
 
@@ -48,13 +45,6 @@ class DataModule {
     @Provides
     @Reusable
     internal fun provideOkHttpClient(): OkHttpClient {
-        //        return OkHttpClient.Builder()
-//            .connectTimeout(30, TimeUnit.SECONDS)
-//            .readTimeout(60, TimeUnit.SECONDS)
-//            .writeTimeout(60, TimeUnit.SECONDS)
-//            .addInterceptor(requestInterceptor)
-//            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-//            .build()
         return OkHttpClient.Builder()
             .addInterceptor(requestInterceptor)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
@@ -62,17 +52,10 @@ class DataModule {
     }
 
     private val requestInterceptor = Interceptor { chain ->
-//        val url = chain.request()
-//            .url()
-//            .newBuilder()
-//            .addQueryParameter("api_key", key)
-//            .addQueryParameter("x-api-key", Constants.API_KEY)
-//            .build()
         val request = chain.request()
             .newBuilder()
             .addHeader("x-api-key", Constants.API_KEY)
             .build()
-
         return@Interceptor chain.proceed(request)
     }
 }

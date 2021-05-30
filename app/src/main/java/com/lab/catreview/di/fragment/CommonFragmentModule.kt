@@ -8,11 +8,6 @@ import dagger.Provides
 
 @Module
 class CommonFragmentModule {
-//    @Provides
-//    fun providePresenter(useCase: GetCatImagesUseCase): CommonPresenter {
-//        return CommonPresenter(useCase)
-//    }
-
     @Provides
     fun provideScheduler(): SchedulerProvider {
         return AppSchedulerProvider()

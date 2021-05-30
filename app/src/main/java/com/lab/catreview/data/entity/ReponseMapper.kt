@@ -4,14 +4,6 @@ import com.lab.catreview.data.entity.network.FavouriteItemResponse
 import com.lab.catreview.data.entity.network.ImageResponse
 import com.lab.catreview.domain.entity.Image
 
-/**
- * Transforms the given list of images from their network response model to the persistence
- * response model.
- * The mapper filters out null objects and objects with null properties.
- *
- * @receiver The list of image response models.
- * @return A null filtered list of image persistence models.
- */
 fun List<ImageResponse>.toImageList(): List<Image> =
     asSequence()
         .filterNotNull()
@@ -19,14 +11,6 @@ fun List<ImageResponse>.toImageList(): List<Image> =
         .map { Image(id = it.id!!, url = it.url!!) }
         .toList()
 
-/**
- * Transforms the given list of favourite items from their network response model to the image
- * persistence response model.
- * The mapper filters out null objects and objects with null properties.
- *
- * @receiver The list of favourite item response models.
- * @return A null filtered list of image persistence models.
- */
 fun List<FavouriteItemResponse>.toFavImageList(): List<Image> =
     asSequence()
         .filterNotNull()
